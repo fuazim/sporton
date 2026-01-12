@@ -65,7 +65,7 @@ const productsLists = [
 
 export default function products() {
     return (
-        <section id='productSection' className='container mx-auto pt-40 pb-20 flex flex-col gap-8'>
+        <section id='productSection' className='container mx-auto pb-60 flex flex-col gap-8'>
             <div className='flex justify-center items-center'>
                 <h2 className='font-bold text-4xl italic text-black'><span className='text-primary'>OUR </span>PRODUCTS</h2>
             </div>

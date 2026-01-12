@@ -38,7 +38,7 @@ const categoryLists = [
 
 export default function category() {
   return (
-    <section id='categorySection' className='container mx-auto flex flex-col gap-8 pb-20'>
+    <section id='categorySection' className='container mx-auto flex flex-col gap-8 pb-60'>
         <div className="flex justify-between">
             <h2 className='font-bold text-2xl'>
                 Browse by Categories
