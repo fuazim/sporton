@@ -43,7 +43,7 @@ export default function category() {
             <h2 className='font-bold text-2xl'>
                 Browse by Categories
             </h2>
-            <Button varian="ghost" className='text-primary hover:text-black! text-right! pr-0!'>See All Categories <FiArrowRight/></Button>
+            <Button variant="ghost" className='text-primary hover:text-black! text-right! pr-0!'>See All Categories <FiArrowRight/></Button>
         </div>
         <div className="grid grid-cols-6 gap-14">
             {categoryLists.map((category) => (
