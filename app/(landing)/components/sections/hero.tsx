@@ -14,10 +14,10 @@ export default function hero() {
                 <p className='text-medium font-medium'>Engineered for endurance and designed for speed. Experience gear <br/> that moves as fast as you do. Premium fabrics. Unmatched comfort. <br/> Limitless motion.</p>
                 <div className='flex gap-5'>
                     <Button>Explore More <FiFastForward size={16}/></Button>
-                    <Button varian='ghost'>Watch Video <span className='bg-white border-6 border-gray-100 rounded-full p-2'><IoIosPlay size={16}/></span></Button>
+                    <Button variant='ghost'>Watch Video <span className='bg-white border-6 border-gray-100 rounded-full p-2'><IoIosPlay size={16}/></span></Button>
                 </div>
             </div>
-            <Image src="/images/hero-2.png" alt="Hero Image" width={600} height={600} className='absolute right-50 top-1/2 -translate-y-1/2 z-20' />
+            <Image src="/images/hero-2.png" alt="Hero Image" width={500} height={500} className='absolute right-50 top-1/2 -translate-y-1/2 z-20' />
         </div>
         <Image src="/images/ornament.png" alt="Ornament" width={400} height={400} className='absolute -right-60 top-1/2 -translate-y-1/2' />
         <Image src="/images/basketball.webp" alt="Basketball" width={300} height={300} className='grayscale opacity-10 absolute -left-[-80pxs] top-30' />
