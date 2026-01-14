@@ -63,7 +63,7 @@ const productsLists = [
     },
 ]
 
-export default function products() {
+export default function Products() {
     return (
         <section id='productSection' className='container mx-auto pb-60 flex flex-col gap-8'>
             <div className='flex justify-center items-center'>

@@ -4,7 +4,7 @@ import { FiFastForward } from 'react-icons/fi'
 import { IoIosPlay } from "react-icons/io";
 import Image from 'next/image'
 
-export default function hero() {
+export default function Hero() {
   return (
     <section className='container mx-auto h-screen flex'>
         <div className='relative self-center w-full'>

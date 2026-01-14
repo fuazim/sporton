@@ -8,7 +8,7 @@ type CartPopupProps = {
     onClose: () => void
 }
 
-const cartItems = [
+export const cartItems = [
     {
         id: 3,
         name: "Hypersoccer Pro",
@@ -32,7 +32,7 @@ const cartItems = [
         qty: 100,
         category: "Tennis",
         imageURL: "rocket-tennis-2.png",
-    }
+    },
 ]
 
 const total = cartItems.reduce((acc, item) => acc + item.price * item.

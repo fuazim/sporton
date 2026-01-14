@@ -22,3 +22,19 @@ html {
 * {
  @apply font-poppins;
 }
+
+.input-group {
+    @apply flex flex-col gap-2;
+}
+
+.input-group label {
+    @apply text-xs text-black;
+}
+
+.input-group input {
+    @apply bg-gray-100 p-3 text-sm text-gray-500 w-full outline-none;
+}
+
+.input-group textarea {
+    @apply bg-gray-100 p-3 text-sm text-gray-500 h-24 w-full outline-none;  
+}

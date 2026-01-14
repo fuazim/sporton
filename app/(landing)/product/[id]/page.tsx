@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from 'next/image'
 import ProductAction from '@/app/(landing)/components/product-details/product-action'
 

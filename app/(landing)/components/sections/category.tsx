@@ -36,7 +36,7 @@ const categoryLists = [
     },
 ]
 
-export default function category() {
+export default function Category() {
   return (
     <section id='categorySection' className='container mx-auto flex flex-col gap-8 pb-60'>
         <div className="flex justify-between">
