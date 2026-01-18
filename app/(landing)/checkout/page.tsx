@@ -8,8 +8,8 @@ export default function Checkout() {
       <div className='max-w-5xl mx-auto py-10 flex flex-col gap-10'>
         <h1 className='font-bold text-black text-5xl text-center'>Checkout Now</h1>
         <div className='flex flex-row gap-15'>
-          <OrderInformation/>
-          <CartItems/>
+          <OrderInformation />
+          <CartItems />
         </div>
       </div>
     </main>
