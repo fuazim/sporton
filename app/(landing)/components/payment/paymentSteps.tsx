@@ -2,18 +2,21 @@
 
 import React from 'react'
 import CardHeader from '../ui/cardheader'
-import { FiCheckCircle, FiCreditCard } from 'react-icons/fi'
+import { FiCheckCircle } from 'react-icons/fi'
 import Upload from '../ui/upload'
-import { cartItems as cartLists } from '../ui/cartpopup'
 import Button from '../ui/button'
 import { useRouter } from 'next/navigation'
+import { useCartStore } from '@/app/hooks/use-cart-store'
 
 export default function PaymentSteps() {
     const { push } = useRouter()
+    const cartItems = useCartStore((state) => state.items)
+    const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
+    
     const uploadAndConfirm = () => {
         push('/order-status/12121212')
     }
-    const total = cartLists.reduce((acc, item) => acc + item.price * item.qty, 0)
+    
     return (
         <CardHeader title="Payment Steps">
             <div className="p-4">
@@ -21,7 +24,7 @@ export default function PaymentSteps() {
                     <div className='text-sm font-regular text-black'>
                         <ol className='list-decimal pl-4 flex flex-col gap-4'>
                             <li>
-                                Transfer the total amount of <span className='text-primary font-bold'>Rp. 1.035.000</span> to your preferred bank account listed under 'Payment Options' (BCA, Mandiri, or BTPN).
+                                Transfer the total amount of <span className='text-primary font-bold'>IDR {total.toLocaleString('id-ID')}</span> to your preferred bank account listed under 'Payment Options' (BCA, Mandiri, or BTPN).
                             </li>
                             <li>
                                 After completing the transfer, <span className='font-bold'>keep the payment receipt</span> or a screenshot of the transfer confirmation. This will be needed for the next step.
