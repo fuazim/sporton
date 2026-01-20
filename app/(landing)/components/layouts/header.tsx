@@ -14,6 +14,7 @@ const Header = () => {
     const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0)
     
     useEffect(() => {
+        useCartStore.persist.rehydrate()
         setIsHydrated(true)
     }, [])
     
