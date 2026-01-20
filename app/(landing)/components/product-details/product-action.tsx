@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '../ui/button'
 import { FiArrowRight, FiShoppingBag, FiChevronUp, FiChevronDown } from 'react-icons/fi'
 import { useRouter } from 'next/navigation'
@@ -15,6 +15,11 @@ export default function ProductAction({ product }: ProductActionProps) {
     const { push } = useRouter()
     const addItem = useCartStore((state) => state.addItem)
     const [qty, setQty] = useState(1)
+
+    // Rehydrate store on mount
+    useEffect(() => {
+        useCartStore.persist.rehydrate()
+    }, [])
 
     const handleAddToCart = () => {
         addItem(product, qty)

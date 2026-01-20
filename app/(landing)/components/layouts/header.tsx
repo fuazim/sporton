@@ -33,7 +33,7 @@ const Header = () => {
                 <Button variant="ghost" size="small" className='relative cursor-pointer p-0!' onClick={() => setIsCartOpen(!isCartOpen)}>
                     <FiShoppingBag size={24}/>
                     {isHydrated && cartCount > 0 && (
-                        <div className='flex items-center justify-center absolute -top-1 -right-1 w-3.5 h-3.5 bg-primary rounded-full text-[10px] text-primary-light text-center'>
+                        <div className='flex items-center justify-center absolute -top-2 -right-2 w-5 h-5 bg-primary rounded-full text-[10px] font-bold text-white leading-none'>
                             {cartCount > 99 ? '99+' : cartCount}
                         </div>
                     )}
