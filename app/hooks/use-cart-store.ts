@@ -6,18 +6,30 @@ export interface CartItem extends Product {
     quantity: number;
 }
 
+export interface CustomerInfo {
+    customerName: string;
+    customerContact: string;
+    customerAddress: string;
+}
+
 interface CartStore {
+    customerInfo: CustomerInfo | null;
     items: CartItem[];
-    addItem: (product: Product, qty: number) => void;
-    removeItem: (id: string) => void;
+    setCustomerInfo: (info: CustomerInfo) => void;
+    addItem: (product: Product, qty?: number) => void;
+    removeItem: (productId: string) => void;
     reset: () => void;
 }
 
 export const useCartStore = create<CartStore>()(
     persist(
         (set, get) => ({
+            customerInfo: null,
             items: [],
-            addItem: (product: Product, qty: number = 1) => {
+            setCustomerInfo: (info) => {
+                set({ customerInfo: info });
+            },
+            addItem: (product, qty = 1) => {
                 const items = get().items;
                 const existingItem = items.find(item => item._id === product._id);
                 if (existingItem) {
@@ -30,13 +42,16 @@ export const useCartStore = create<CartStore>()(
                     })
                 }
             },
-            removeItem: (productId: string) => {
+            removeItem: (productId) => {
                 set({
                     items: get().items.filter(item => item._id !== productId)
                 })
             },
             reset: () => {
-                set({ items: [] })
+                set({ 
+                    customerInfo: null,
+                    items: []
+                })
             }
         }),
         {

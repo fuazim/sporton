@@ -4,12 +4,14 @@ import Image from 'next/image'
 import Button from '../ui/button'
 import { FiTrash2, FiCreditCard } from 'react-icons/fi'
 import CardHeader from '../ui/cardheader'
-import { useRouter } from 'next/navigation'
 import { useCartStore } from '@/app/hooks/use-cart-store'
 import { getImageUrl } from '@/app/lib/api'
 
-export default function CartItems() {
-    const { push } = useRouter()
+interface CartItemsProps {
+    handlePayment: () => void;
+}
+
+export default function CartItems({ handlePayment }: CartItemsProps) {
     const cartItems = useCartStore((state) => state.items)
     const removeItem = useCartStore((state) => state.removeItem)
     const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
@@ -46,8 +48,9 @@ export default function CartItems() {
                     <div className='font-semibold text-black text-xs'>Total</div>
                     <div className='font-semibold text-primary text-xs'>IDR {total.toLocaleString('id-ID')}</div>
                 </div>
-                <Button variant="dark" className='w-full' onClick={() => push('/payment')}><FiCreditCard size={18} /> Proceed to Payment</Button>
+                <Button variant="dark" className='w-full' onClick={handlePayment}><FiCreditCard size={18} /> Proceed to Payment</Button>
             </div>
         </CardHeader>
     )
 }
+

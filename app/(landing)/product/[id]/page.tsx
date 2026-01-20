@@ -35,7 +35,7 @@ export default async function ProductDetail({ params }: PageProps) {
         <h2 className='font-bold text-primary text-3xl'>
           IDR {product.price.toLocaleString('id-ID')}
         </h2>
-        <ProductAction stock={product.stock} />
+        <ProductAction product={product} />
       </div>
     </main>
   )
