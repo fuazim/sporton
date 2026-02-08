@@ -4,6 +4,9 @@ import Image from 'next/image'
 import { FiBox, FiCreditCard, FiLayers, FiLogOut, FiShoppingCart } from 'react-icons/fi'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { logout } from '@/app/services/auth.service'
+import { useRouter } from 'next/navigation'
+
 
 const MenuItems = [
     {
@@ -28,8 +31,15 @@ const MenuItems = [
     }
 ]
 
-export default function sidebar() {
+export default function Sidebar() {
     const pathname = usePathname()
+    const router = useRouter()
+
+    const handleLogout = () => {
+        logout()
+        router.push('/admin/login')
+    }
+
     return (
         <aside className='w-80 min-h-screen bg-white border-r border-gray-200 flex flex-col fixed left-0 top-0 z-10'>
             <div className="py-8 px-14 border-b border-gray-200 flex items-center">
@@ -49,10 +59,10 @@ export default function sidebar() {
                 }
             </div>
             <div className='flex flex-col gap-2 px-6 py-6 mt-auto'>
-                <Link href="/admin/logout" className="flex flex-1 items-center rounded-lg px-4.5 py-4 gap-3 hover:bg-gray-100 hover:text-black">
+                <button className="flex flex-1 items-center rounded-lg px-4.5 py-4 gap-3 hover:bg-gray-100 hover:text-black cursor-pointer" onClick={handleLogout}>
                     <FiLogOut size={24} />
                     <span className='font-medium'>Logout</span>
-                </Link>
+                </button>
             </div>
         </aside>
     )
